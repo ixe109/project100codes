@@ -27,7 +27,7 @@ import SoftTypography from "components/SoftTypography";
 // Soft UI Dashboard React base styles
 import typography from "assets/theme/base/typography";
 
-function Footer({ company, links }) {
+function Footer({ company = "", links= [] }) {
   const { href, name } = company;
   const { size } = typography;
 

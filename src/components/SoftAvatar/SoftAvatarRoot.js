@@ -26,10 +26,23 @@ export default styled(Avatar)(({ theme, ownerState }) => {
   const { size: fontSize, fontWeightBold } = typography;
 
   // backgroundImage value
-  const backgroundValue =
-    bgColor === "transparent"
-      ? transparent.main
-      : linearGradient(gradients[bgColor].main, gradients[bgColor].state);
+  const validGradients = [
+  "primary",
+  "secondary",
+  "info",
+  "success",
+  "warning",
+  "error",
+  "dark",
+  "light",
+];
+
+const backgroundValue =
+  bgColor === "transparent"
+    ? transparent.main
+    : validGradients.includes(bgColor)
+    ? linearGradient(gradients[bgColor].main, gradients[bgColor].state)
+    : "inherit";
 
   // size value
   let sizeValue;
